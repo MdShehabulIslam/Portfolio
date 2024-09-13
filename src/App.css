@@ -1,38 +1,411 @@
-.App {
+/* General Styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background: #f4f4f4;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+  background: linear-gradient(120deg, #00695c, #004d40);
+  color: #fff;
+  padding: 5rem 0;
   text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: -1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header .profile-img {
+  width: 180px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header .profile-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+  font-size: 3.5rem;
+  margin: 0.5rem 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+header p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.btn-custom {
+  background-color: #fff;
+  color: #004d40;
+  border: 2px solid #004d40;
+  padding: 0.8rem 1.8rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+.btn-custom:hover {
+  background-color: #004d40;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Styles */
+section {
+  padding: 3rem 0;
+  border: none; /* Ensure no borders are applied */
+  margin: 0; /* Remove default margin */
+}
+
+.section-title {
+  font-size: 2.8rem;
+  border-bottom: 4px solid #004d40; /* Single line under title */
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: #004d40;
+  position: relative;
+}
+
+/* Skill Box */
+.skill-box {
+  background: #fff;
+  padding: 2rem;
+  margin: 1rem 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.skill-box::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 5px;
+  background: #004d40;
+  border-radius: 5px;
+}
+
+.skill-box:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Experience & Projects */
+
+/* Experience Section Styles */
+.experience {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1.5rem; /* Space between each job entry */
 }
 
-.App-link {
-  color: #61dafb;
+.experience .job {
+  background: #ffffff; /* Clean white background */
+  padding: 2rem 2.5rem; /* More padding for a spacious look */
+  margin: 0; /* Remove margin for uniform spacing */
+  border-radius: 10px; /* Softer rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Remove the left border line by deleting the ::before pseudo-element */
+.experience .job::before {
+  content: none;
+}
+
+.experience .job:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+  transform: translateY(-5px); /* Increased elevation effect */
+}
+
+/* Heading styles */
+.experience h4 {
+  font-size: 1.6rem; /* Larger font size for job titles */
+  margin-bottom: 0.5rem;
+  color: #004d40; /* Primary color */
+  font-weight: 700; /* Bold weight for emphasis */
+}
+
+/* Paragraph styles */
+.experience p {
+  font-size: 1.1rem; /* Slightly larger font size for readability */
+  margin: 0.5rem 0; /* Space above and below the paragraph */
+  color: #333; /* Darker color for better readability */
+}
+
+/* List styles */
+.experience ul {
+  padding-left: 1.5rem; /* Indentation for list items */
+  list-style: disc; /* Default disc style for list items */
+}
+
+.experience ul li {
+  margin-bottom: 0.75rem; /* More space between list items */
+  line-height: 1.6; /* Increased line height for readability */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience .job {
+    padding: 1.5rem; /* Less padding on smaller screens */
   }
-  to {
-    transform: rotate(360deg);
+
+  .experience h4 {
+    font-size: 1.4rem; /* Smaller font size on mobile */
   }
+
+  .experience p {
+    font-size: 1rem; /* Smaller font size on mobile */
+  }
+}
+
+/* Projects Section Styles */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Space between each project entry */
+}
+
+.projects .project {
+  background: #ffffff; /* Clean white background */
+  padding: 2rem; /* Generous padding for content spacing */
+  border-radius: 12px; /* Rounded corners for a modern look */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  position: relative;
+}
+
+.projects .project:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+  transform: translateY(-5px); /* Elevation effect */
+}
+
+.projects h4 {
+  font-size: 1.6rem; /* Larger font size for project titles */
+  margin-bottom: 1rem; /* Space below the title */
+  color: #004d40; /* Primary color for consistency */
+  font-weight: 700; /* Bold weight for emphasis */
+}
+
+.projects h4 a {
+  color: #004d40; /* Primary color for links */
+  text-decoration: none; /* Remove underline from links */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.projects h4 a:hover {
+  color: #00796b; /* Slightly lighter color on hover */
+}
+
+.projects ul {
+  padding-left: 1.5rem; /* Indentation for list items */
+  list-style: disc; /* Default disc style for list items */
+}
+
+.projects ul li {
+  margin-bottom: 0.75rem; /* Space between list items */
+  line-height: 1.6; /* Increased line height for readability */
+  color: #555555; /* Slightly darker text color */
+}
+
+.projects ul li::marker {
+  color: #004d40; /* Primary color for list markers */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects .project {
+    padding: 1.5rem; /* Less padding on smaller screens */
+  }
+
+  .projects h4 {
+    font-size: 1.4rem; /* Smaller font size on mobile */
+  }
+
+  .projects ul li {
+    font-size: 1rem; /* Smaller font size on mobile */
+  }
+}
+
+/* Education Box */
+.education-box {
+  background: #fff;
+  padding: 2rem;
+  margin: 1rem 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.education-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.education-box h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #004d40; /* Match primary color */
+}
+
+.education-box p {
+  font-size: 1rem;
+  color: #555555;
+  line-height: 1.5; /* Adds space between lines */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .education-box {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+a {
+  color: inherit; /* Use this if you want the link color to inherit from its parent */
+  text-decoration: none; /* Removes underline */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Accomplishments Section Styles */
+.accomplishments {
+  background: #ffffff; /* Clean white background */
+  padding: 2rem; /* Generous padding for content spacing */
+  border-radius: 12px; /* Rounded corners for a modern look */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  margin-bottom: 2rem; /* Space below the section */
+}
+
+.accomplishments h2 {
+  font-size: 2rem; /* Font size for the section title */
+  margin-bottom: 1.5rem; /* Space below the title */
+  color: #004d40; /* Primary color for consistency */
+  font-weight: 700; /* Bold weight for emphasis */
+  text-transform: uppercase; /* Uppercase text for the title */
+  position: relative;
+}
+
+.accomplishments h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #004d40; /* Match primary color or use an accent color */
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+
+.accomplishments ul {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+}
+
+.accomplishments ul li {
+  background: #f9f9f9; /* Slight background for list items */
+  padding: 1rem; /* Padding for each item */
+  margin-bottom: 0.75rem; /* Space between list items */
+  border-radius: 8px; /* Rounded corners for list items */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  color: #333333; /* Text color for readability */
+  font-size: 1.1rem; /* Slightly larger font size */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.accomplishments ul li:hover {
+  background: #e0f2f1; /* Light primary color background on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .accomplishments {
+    padding: 1.5rem; /* Less padding on smaller screens */
+  }
+
+  .accomplishments h2 {
+    font-size: 1.5rem; /* Smaller font size on mobile */
+  }
+
+  .accomplishments ul li {
+    font-size: 1rem; /* Smaller font size on mobile */
+  }
+}
+
+/* Footer Styles */
+footer {
+  background: linear-gradient(120deg, #004d40, #003d34);
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 4px solid #003d34;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #b2dfdb;
+}
+
+.social-icons {
+  margin-bottom: 1rem;
+}
+
+.social-icons a {
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons i {
+  font-size: 1.25rem; /* Adjust icon size */
 }
