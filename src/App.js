@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import ContactForm from "./ContactForm";
 
 function App() {
   return (
@@ -231,45 +232,8 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section className="container my-5 contact-section">
-        <h2 className="section-title">Contact Me</h2>
-        <p className="lead text-center">
-          Feel free to reach out for any inquiries, opportunities, or
-          collaborations.
-        </p>
-        <form className="contact-form">
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              id="name"
-              placeholder="Your Name"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="email"
-              className="form-control form-control-lg"
-              id="email"
-              placeholder="Your Email"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <textarea
-              className="form-control form-control-lg"
-              id="message"
-              rows="5"
-              placeholder="Your Message"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" className="btn btn-custom mt-4">
-            Send Message
-          </button>
-        </form>
-      </section>
+
+      <ContactForm />
 
       {/* Footer */}
       <footer className="bg-dark text-white text-center py-4">
