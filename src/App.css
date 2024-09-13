@@ -307,56 +307,6 @@ a {
   transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
-/* Accomplishments Section Styles */
-.accomplishments {
-  background: #ffffff; /* Clean white background */
-  padding: 2rem; /* Generous padding for content spacing */
-  border-radius: 12px; /* Rounded corners for a modern look */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-  margin-bottom: 2rem; /* Space below the section */
-}
-
-.accomplishments h2 {
-  font-size: 2rem; /* Font size for the section title */
-  margin-bottom: 1.5rem; /* Space below the title */
-  color: #004d40; /* Primary color for consistency */
-  font-weight: 700; /* Bold weight for emphasis */
-  text-transform: uppercase; /* Uppercase text for the title */
-  position: relative;
-}
-
-.accomplishments h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: #004d40; /* Match primary color or use an accent color */
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-}
-
-.accomplishments ul {
-  list-style: none; /* Remove default list styling */
-  padding: 0; /* Remove default padding */
-}
-
-.accomplishments ul li {
-  background: #f9f9f9; /* Slight background for list items */
-  padding: 1rem; /* Padding for each item */
-  margin-bottom: 0.75rem; /* Space between list items */
-  border-radius: 8px; /* Rounded corners for list items */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-  color: #333333; /* Text color for readability */
-  font-size: 1.1rem; /* Slightly larger font size */
-  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-}
-
-.accomplishments ul li:hover {
-  background: #e0f2f1; /* Light primary color background on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .accomplishments {
@@ -370,6 +320,67 @@ a {
   .accomplishments ul li {
     font-size: 1rem; /* Smaller font size on mobile */
   }
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Contact Form Styling */
+.contact-form .form-control {
+  background-color: #f9f9f9; /* Light background for inputs */
+  border: 1px solid #ccc; /* Subtle border */
+  padding: 12px 15px; /* Comfortable padding for better readability */
+  font-size: 1rem; /* Professional font size */
+  border-radius: 6px; /* Softly rounded corners */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus effects */
+}
+
+.contact-form .form-control:focus {
+  border-color: #28a745; /* Change border to green on focus */
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.2); /* Slight glow effect on focus */
+  outline: none; /* Remove default browser outline */
+  background-color: #fff; /* White background for clarity */
+}
+
+/* Textarea */
+.contact-form textarea {
+  resize: none; /* Disable resizing for better layout control */
+}
+
+/* Contact Section Button with Pop-Up Effect */
+.btn-custom {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 40px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #218838;
 }
 
 /* Footer Styles */

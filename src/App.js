@@ -13,7 +13,6 @@ function App() {
         />
         <h1>Mohammad Shehabul Islam</h1>
         <p>Computer Science Graduate | Software Developer</p>
-        <p>📧 mohammadsi@mun.ca | 📞 +1 (709) 687-4395</p>
         <a
           href="https://www.linkedin.com/in/mohammad-shehabul-islam-55b7b223a/"
           className="btn btn-light m-2 btn-custom"
@@ -63,7 +62,7 @@ function App() {
           </div>
           <div className="col-md-6 skill-box">
             <h4>Databases</h4>
-            <p>PostgreSQL, MySQL, MongoDB</p>
+            <p>PostgreSQL, MySQL</p>
           </div>
         </div>
       </section>
@@ -155,6 +154,33 @@ function App() {
         </div>
       </section>
 
+      {/* Education Section */}
+      <section className="container my-5">
+        <h2 className="section-title">Education</h2>
+        <div className="row">
+          <div className="col-md-6 education-box">
+            <div className="education-card">
+              <h4>Memorial University of Newfoundland</h4>
+              <p>
+                M.Sc. in Computer Science
+                <br />
+                Graduated 2024
+              </p>
+            </div>
+          </div>
+          <div className="col-md-6 education-box">
+            <div className="education-card">
+              <h4>BRAC University</h4>
+              <p>
+                B.Sc. in Computer Science and Engineering
+                <br />
+                Graduated 2021
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section className="container my-5">
         <h2 className="section-title">Projects</h2>
@@ -204,45 +230,45 @@ function App() {
         </div>
       </section>
 
-      {/* Education Section */}
-      <section className="container my-5">
-        <h2 className="section-title">Education</h2>
-        <div className="row">
-          <div className="col-md-6 education-box">
-            <div className="education-card">
-              <h4>Memorial University of Newfoundland</h4>
-              <p>
-                M.Sc. in Computer Science
-                <br />
-                Graduated 2024
-              </p>
-            </div>
+      {/* Contact Section */}
+      <section className="container my-5 contact-section">
+        <h2 className="section-title">Contact Me</h2>
+        <p className="lead text-center">
+          Feel free to reach out for any inquiries, opportunities, or
+          collaborations.
+        </p>
+        <form className="contact-form">
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              id="name"
+              placeholder="Your Name"
+              required
+            />
           </div>
-          <div className="col-md-6 education-box">
-            <div className="education-card">
-              <h4>BRAC University</h4>
-              <p>
-                B.Sc. in Computer Science and Engineering
-                <br />
-                Graduated 2021
-              </p>
-            </div>
+          <div className="form-group">
+            <input
+              type="email"
+              className="form-control form-control-lg"
+              id="email"
+              placeholder="Your Email"
+              required
+            />
           </div>
-        </div>
-      </section>
-
-      {/* Accomplishments Section */}
-      <section className="container my-5">
-        <h2 className="section-title">Accomplishments</h2>
-        <ul>
-          <li>Dean's List Award - BRAC University</li>
-          <li>Vice Chancellor's Award - BRAC University</li>
-          <li>Performance-Based Scholarship (Top 10%) - BRAC University</li>
-          <li>
-            Aldrich Multidisciplinary Conference Presenter - Memorial University
-            of Newfoundland
-          </li>
-        </ul>
+          <div className="form-group">
+            <textarea
+              className="form-control form-control-lg"
+              id="message"
+              rows="5"
+              placeholder="Your Message"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" className="btn btn-custom mt-4">
+            Send Message
+          </button>
+        </form>
       </section>
 
       {/* Footer */}
