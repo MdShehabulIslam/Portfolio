@@ -29,7 +29,7 @@ function App() {
 
       {/* Summary Section */}
       <section className="container my-5">
-        <h2 className="section-title">Summary</h2>
+        <h2 className="section-title">About Me</h2>
         <p className="lead">
           A Computer Science graduate and a software professional with
           experience in both industry and academia. With prior experience
