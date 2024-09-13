@@ -7,7 +7,7 @@ function App() {
       {/* Header Section */}
       <header className="bg-primary text-white text-center py-5">
         <img
-          src="../public/images/profile.jpg"
+          src={`${process.env.PUBLIC_URL}/img/profile.jpg`}
           alt="Profile"
           className="profile-img"
         />
