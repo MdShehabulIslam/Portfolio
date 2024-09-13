@@ -6,7 +6,11 @@ function App() {
     <div className="App">
       {/* Header Section */}
       <header className="bg-primary text-white text-center py-5">
-        <img src="/images/profile.jpg" alt="Profile" className="profile-img" />
+        <img
+          src="../public/images/profile.jpg"
+          alt="Profile"
+          className="profile-img"
+        />
         <h1>Mohammad Shehabul Islam</h1>
         <p>Computer Science Graduate | Software Developer</p>
         <p>📧 mohammadsi@mun.ca | 📞 +1 (709) 687-4395</p>
@@ -45,7 +49,7 @@ function App() {
           </div>
           <div className="col-md-4 skill-box">
             <h4>Frameworks</h4>
-            <p>React, Next.js, Bootstrap, Springboot</p>
+            <p>React, Next.js, Bootstrap, Spring Boot</p>
           </div>
           <div className="col-md-4 skill-box">
             <h4>Cloud & DevOps</h4>
