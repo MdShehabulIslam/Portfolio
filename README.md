@@ -45,3 +45,6 @@ git push
 ```
 
 Step 10: npm run deploy
+
+![image](https://github.com/user-attachments/assets/3a9ded12-82e6-45a3-8cc4-0f2737dcd724)
+
