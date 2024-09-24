@@ -1,27 +1,36 @@
 /* General Styles */
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
+  background: linear-gradient(135deg, #f0f4f8 0%, #cfd9df 100%);
   color: #333;
-  background: #f4f4f4;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+section {
+  padding: 3rem 0;
+  border: none;
+  margin: 0;
+  text-align: center; /* Center-align all section content */
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
+  margin-top: 80px; /* Add top margin to prevent overlap with fixed navbar */
 }
 
 /* Header Styles */
 header {
   background: linear-gradient(120deg, #00695c, #004d40);
   color: #fff;
-  padding: 5rem 0;
+  padding: 5rem 0; /* Keep this for vertical padding */
   text-align: center;
   position: relative;
   z-index: 1;
-  overflow: hidden;
+  overflow: hidden; /* Add margin to position header below navbar */
 }
 
 header::before {
@@ -36,14 +45,14 @@ header::before {
 }
 
 header .profile-img {
-  width: 150px; /* Adjust size if needed */
-  height: 150px; /* Maintain aspect ratio for the circular image */
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-bottom: 1rem;
   border: 4px solid #fff;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  object-fit: cover; /* Ensures the image covers the area and maintains aspect ratio */
+  object-fit: cover;
 }
 
 header .profile-img:hover {
@@ -83,21 +92,116 @@ header p {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Navbar Styles */
+.navbar {
+  background-color: #ffffff;
+  color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transform: translateY(0);
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  height: 100%;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333; /* Dark text */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: #333; /* Dark text */
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+/* Toggle button for mobile view */
+.navbar-toggle {
+  display: none;
+}
+
+/* Show toggle button for smaller screens */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+    color: #333;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+  }
+}
+
 /* Section Styles */
 section {
   padding: 3rem 0;
-  border: none; /* Ensure no borders are applied */
-  margin: 0; /* Remove default margin */
+  border: none;
+  margin: 0;
 }
 
 .section-title {
-  font-size: 2.8rem;
-  border-bottom: 4px solid #004d40; /* Single line under title */
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
-  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 700;
   color: #004d40;
   position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 4px;
+  background-color: #004d40;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* About Me */
+
+.about-text {
+  font-family: "Roboto", sans-serif;
+  text-align: justify;
+  margin: 1rem auto;
+  max-width: 800px;
+  line-height: 1.8;
+  color: #333;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.about-text:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
 }
 
 /* Skill Box */
@@ -127,140 +231,194 @@ section {
   transform: translateY(-5px);
 }
 
-/* Experience Section Styles */
-.experience {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* Space between each job entry */
-}
-
-.experience .job {
-  background: #ffffff; /* Clean white background */
-  padding: 2rem 2.5rem; /* More padding for a spacious look */
-  margin: 0; /* Remove margin for uniform spacing */
-  border-radius: 10px; /* Softer rounded corners */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+/* Timeline Styles for Experience and Education */
+.timeline {
   position: relative;
+  padding: 20px 0;
 }
 
-/* Remove the left border line by deleting the ::before pseudo-element */
-.experience .job::before {
-  content: none;
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #004d40;
+  transform: translateX(-50%);
 }
 
-.experience .job:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
-  transform: translateY(-5px); /* Increased elevation effect */
+/* Animation for Timeline Items */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  position: relative;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 45%;
 }
 
-/* Heading styles */
-.experience h4 {
-  font-size: 1.6rem; /* Larger font size for job titles */
+/* Visible class for animations */
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Positioning of Timeline Items */
+.timeline-item.left {
+  left: 0;
+  text-align: left;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+/* Circle at the end of timeline items */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: #004d40;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(even)::after {
+  left: -10px;
+  right: auto;
+}
+
+/* Icon styling */
+.timeline-item .icon {
+  font-size: 2rem;
+  color: #004d40;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.timeline-item h4 {
+  font-size: 1.6rem;
   margin-bottom: 0.5rem;
-  color: #004d40; /* Primary color */
-  font-weight: 700; /* Bold weight for emphasis */
+  color: #004d40;
+  font-weight: 700;
 }
 
-/* Paragraph styles */
-.experience p {
-  font-size: 1.1rem; /* Slightly larger font size for readability */
-  margin: 0.5rem 0; /* Space above and below the paragraph */
-  color: #333; /* Darker color for better readability */
+.timeline-item p,
+.timeline-item ul {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
 }
 
-/* List styles */
-.experience ul {
-  padding-left: 1.5rem; /* Indentation for list items */
-  list-style: disc; /* Default disc style for list items */
+.timeline-item ul {
+  list-style: disc;
+  padding-left: 1.5rem;
 }
 
-.experience ul li {
-  margin-bottom: 0.75rem; /* More space between list items */
-  line-height: 1.6; /* Increased line height for readability */
+.timeline-item ul li {
+  margin-bottom: 0.5rem;
 }
 
-/* Responsive Design */
+/* Responsive Design for Timeline */
 @media (max-width: 768px) {
-  .experience .job {
-    padding: 1.5rem; /* Less padding on smaller screens */
+  .timeline::before {
+    left: 10px;
   }
 
-  .experience h4 {
-    font-size: 1.4rem; /* Smaller font size on mobile */
+  .timeline-item {
+    width: 100%;
+    text-align: left;
+    padding-left: 50px;
   }
 
-  .experience p {
-    font-size: 1rem; /* Smaller font size on mobile */
+  .timeline-item::after {
+    left: 20px;
   }
 }
 
-/* Projects Section Styles */
+/* Projects Section */
+
 .projects {
   display: flex;
-  flex-direction: column;
-  gap: 2rem; /* Space between each project entry */
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem 0;
+  justify-content: center;
 }
 
 .projects .project {
-  background: #ffffff; /* Clean white background */
-  padding: 2rem; /* Generous padding for content spacing */
-  border-radius: 12px; /* Rounded corners for a modern look */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  flex: 1 1 calc(50% - 2rem);
+  max-width: 400px;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
   position: relative;
+  text-align: left;
 }
 
 .projects .project:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
-  transform: translateY(-5px); /* Elevation effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.projects h2.section-title {
+  font-size: 2.5rem;
+  color: #004d40;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .projects h4 {
-  font-size: 1.6rem; /* Larger font size for project titles */
-  margin-bottom: 1rem; /* Space below the title */
-  color: #004d40; /* Primary color for consistency */
-  font-weight: 700; /* Bold weight for emphasis */
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #004d40;
+  font-weight: 700;
 }
 
 .projects h4 a {
-  color: #004d40; /* Primary color for links */
-  text-decoration: none; /* Remove underline from links */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  color: #004d40;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .projects h4 a:hover {
-  color: #00796b; /* Slightly lighter color on hover */
+  color: #00796b;
 }
 
 .projects ul {
-  padding-left: 1.5rem; /* Indentation for list items */
-  list-style: disc; /* Default disc style for list items */
+  padding-left: 1.5rem;
+  list-style: disc;
 }
 
 .projects ul li {
-  margin-bottom: 0.75rem; /* Space between list items */
-  line-height: 1.6; /* Increased line height for readability */
-  color: #555555; /* Slightly darker text color */
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  color: #555555;
 }
 
 .projects ul li::marker {
-  color: #004d40; /* Primary color for list markers */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .projects .project {
-    padding: 1.5rem; /* Less padding on smaller screens */
-  }
-
-  .projects h4 {
-    font-size: 1.4rem; /* Smaller font size on mobile */
-  }
-
-  .projects ul li {
-    font-size: 1rem; /* Smaller font size on mobile */
-  }
+  color: #004d40;
 }
 
 /* Education Box */
@@ -281,16 +439,15 @@ section {
 .education-box h4 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: #004d40; /* Match primary color */
+  color: #004d40;
 }
 
 .education-box p {
   font-size: 1rem;
   color: #555555;
-  line-height: 1.5; /* Adds space between lines */
+  line-height: 1.5;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .education-box {
     padding: 1rem;
@@ -301,86 +458,117 @@ section {
   }
 }
 
-a {
-  color: inherit; /* Use this if you want the link color to inherit from its parent */
-  text-decoration: none; /* Removes underline */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .accomplishments {
-    padding: 1.5rem; /* Less padding on smaller screens */
-  }
-
-  .accomplishments h2 {
-    font-size: 1.5rem; /* Smaller font size on mobile */
-  }
-
-  .accomplishments ul li {
-    font-size: 1rem; /* Smaller font size on mobile */
-  }
-}
+/* Contact Section */
 
 /* Contact Section */
 .contact-section {
-  background-color: #f9f9f9;
-  padding: 50px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  background-color: #f1f1f1;
 }
 
-.contact-section .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #333;
-  text-align: center;
+.contact-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+  padding: 40px;
+  background: url("/build/img/profile.jpg") center/cover no-repeat;
+  color: #fff;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-info h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.contact-info i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.contact-info span {
+  font-size: 16px;
 }
 
 .contact-form {
-  max-width: 600px;
-  margin: 0 auto;
+  padding: 40px;
+  background-color: #fff;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Contact Form Styling */
-.contact-form .form-control {
-  background-color: #f9f9f9; /* Light background for inputs */
-  border: 1px solid #ccc; /* Subtle border */
-  padding: 12px 15px; /* Comfortable padding for better readability */
-  font-size: 1rem; /* Professional font size */
-  border-radius: 6px; /* Softly rounded corners */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus effects */
+.contact-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-.contact-form .form-control:focus {
-  border-color: #28a745; /* Change border to green on focus */
-  box-shadow: 0 0 8px rgba(40, 167, 69, 0.2); /* Slight glow effect on focus */
-  outline: none; /* Remove default browser outline */
-  background-color: #fff; /* White background for clarity */
+.form-group {
+  margin-bottom: 20px;
 }
 
-/* Textarea */
-.contact-form textarea {
-  resize: none; /* Disable resizing for better layout control */
+.form-control {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
-/* Contact Section Button with Pop-Up Effect */
-.btn-custom {
-  background-color: #28a745;
-  color: white;
-  padding: 12px 40px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  border-radius: 8px;
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+.btn-submit {
+  padding: 10px 20px;
+  background-color: #034c41;
+  color: #fff;
   border: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.btn-custom:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  background-color: #218838;
+.btn-submit:hover {
+  background-color: #029941;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.status-message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ff3333;
 }
 
 /* Footer Styles */
@@ -418,5 +606,5 @@ footer a:hover {
 }
 
 .social-icons i {
-  font-size: 1.25rem; /* Adjust icon size */
+  font-size: 1.25rem;
 }

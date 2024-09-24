@@ -1,12 +1,77 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import ContactForm from "./ContactForm";
 
 function App() {
+  useEffect(() => {
+    let timeoutId = null;
+
+    const handleScroll = () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(() => {
+        const navbar = document.querySelector(".navbar");
+        const timelineItems = document.querySelectorAll(".timeline-item");
+
+        // Navbar scroll effect
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+
+        // Timeline items visibility
+        timelineItems.forEach((item) => {
+          const rect = item.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            item.classList.add("visible");
+          } else {
+            item.classList.remove("visible");
+          }
+        });
+      }, 100); // Adjust the delay time for performance optimization
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Trigger scroll effect on initial load
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="App">
+      {/* Navbar Section */}
+      <nav className="navbar" aria-label="Main navigation">
+        <div className="container">
+          <a href="#about" className="navbar-brand">
+            Portfolio Website
+          </a>
+          <button
+            className="navbar-toggle"
+            onClick={() => {
+              const links = document.querySelector(".navbar-links");
+              links.classList.toggle("active"); // Toggle active class to show/hide links
+            }}
+          >
+            <i className="fas fa-bars"></i> {/* Hamburger icon */}
+          </button>
+          <div className="navbar-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </nav>
       {/* Header Section */}
-      <header className="bg-primary text-white text-center py-5">
+      <header className="bg-primary text-white text-center py-5" id="about">
         <img
           src={`${process.env.PUBLIC_URL}/img/profile.jpg`}
           alt="Profile"
@@ -27,20 +92,27 @@ function App() {
           GitHub
         </a>
       </header>
-
       {/* Summary Section */}
-      <section className="container my-5">
+
+      <section className="container my-5" id="about">
         <h2 className="section-title">About Me</h2>
-        <p className="lead">
-          A Computer Science graduate and a software professional with
-          experience in both industry and academia. With prior experience
-          holding multiple computer science positions across continents, I am
-          currently seeking a suitable position to pursue a career in Canada.
+        <p className="about-text">
+          I am a dedicated Computer Science graduate with a solid foundation in
+          software development, programming, and database management. Proficient
+          in languages such as Java, Python, and JavaScript, I bring practical
+          experience in Data Extraction, Web Development, API integration, and
+          expertise in technologies including Spring Boot and PostgreSQL. My
+          academic and project-based experiences have honed my skills in
+          problem-solving, data Analysis, and cross-functional collaboration. I
+          am committed to creating efficient, scalable software solutions and
+          continuously advancing my technical knowledge. I am currently seeking
+          challenging opportunities to contribute my expertise in a dynamic,
+          innovative environment focused on growth and excellence.
         </p>
       </section>
 
       {/* Skills Section */}
-      <section className="container my-5">
+      <section className="container my-5" id="skills">
         <h2 className="section-title">Skills</h2>
         <div className="row text-center">
           <div className="col-md-4 skill-box">
@@ -67,12 +139,12 @@ function App() {
           </div>
         </div>
       </section>
-
       {/* Experience Section */}
-      <section className="container my-5">
+      <section className="container my-5" id="experience">
         <h2 className="section-title">Experience</h2>
-        <div className="experience">
-          <div className="job shadow-sm">
+        <div className="timeline">
+          {/* Graduate Teaching Assistant */}
+          <div className="timeline-item left">
             <h4>Graduate Teaching Assistant</h4>
             <p>
               <strong>Memorial University of Newfoundland</strong>
@@ -90,8 +162,11 @@ function App() {
                 issues during lab sessions.
               </li>
             </ul>
+            <i className="fas fa-chalkboard-teacher icon"></i>
           </div>
-          <div className="job shadow-sm">
+
+          {/* Software Developer */}
+          <div className="timeline-item right">
             <h4>Software Developer</h4>
             <p>
               <strong>CSIpix</strong>
@@ -109,13 +184,12 @@ function App() {
                 Enhanced software efficiency by troubleshooting and resolving
                 coding issues using Parasoft.
               </li>
-              <li>
-                Produced comprehensive technical documentation, including system
-                architecture diagrams and user manuals.
-              </li>
             </ul>
+            <i className="fas fa-laptop-code icon"></i>
           </div>
-          <div className="job shadow-sm">
+
+          {/* Lecturer */}
+          <div className="timeline-item left">
             <h4>Lecturer</h4>
             <p>
               <strong>BRAC University</strong>
@@ -134,8 +208,11 @@ function App() {
                 ensure educational goals were met.
               </li>
             </ul>
+            <i className="fas fa-book icon"></i>
           </div>
-          <div className="job shadow-sm">
+
+          {/* Data Analyst */}
+          <div className="timeline-item right">
             <h4>Data Analyst</h4>
             <p>
               <strong>Uber</strong>
@@ -151,39 +228,36 @@ function App() {
               </li>
               <li>Performed data analysis using SQL and Python.</li>
             </ul>
+            <i className="fas fa-chart-line icon"></i>
           </div>
         </div>
       </section>
 
       {/* Education Section */}
-      <section className="container my-5">
+      <section className="container my-5" id="education">
         <h2 className="section-title">Education</h2>
-        <div className="row">
-          <div className="col-md-6 education-box">
-            <div className="education-card">
-              <h4>Memorial University of Newfoundland</h4>
-              <p>
-                M.Sc. in Computer Science
-                <br />
-                Graduated 2024
-              </p>
-            </div>
+        <div className="timeline">
+          <div className="timeline-item left">
+            <h4>
+              M.Sc. in Computer Science{" "}
+              <i className="fas fa-graduation-cap icon"></i>
+            </h4>
+            <p>Memorial University of Newfoundland</p>
+            <p>Graduated 2024</p>
           </div>
-          <div className="col-md-6 education-box">
-            <div className="education-card">
-              <h4>BRAC University</h4>
-              <p>
-                B.Sc. in Computer Science and Engineering
-                <br />
-                Graduated 2021
-              </p>
-            </div>
+          <div className="timeline-item right">
+            <h4>
+              B.Sc. in Computer Science and Engineering{" "}
+              <i className="fas fa-graduation-cap icon"></i>
+            </h4>
+            <p>BRAC University</p>
+            <p>Graduated 2021</p>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section className="container my-5">
+      <section className="container my-5" id="projects">
         <h2 className="section-title">Projects</h2>
         <div className="projects">
           <div className="project shadow-sm">
@@ -232,9 +306,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-
       <ContactForm />
-
       {/* Footer */}
       <footer className="bg-dark text-white text-center py-4">
         <div className="social-icons">
@@ -263,7 +335,7 @@ function App() {
             <i className="fab fa-facebook fa-lg"></i>
           </a>
         </div>
-        <p>Mohammad Shehabul Islam</p>
+        <p>&copy; Mohammad Shehabul Islam</p>
       </footer>
     </div>
   );
