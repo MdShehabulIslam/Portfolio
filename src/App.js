@@ -70,7 +70,9 @@ function App() {
           </div>
         </div>
       </nav>
+
       {/* Header Section */}
+
       <header className="bg-primary text-white text-center py-5" id="about">
         <img
           src={`${process.env.PUBLIC_URL}/img/profile.jpg`}
@@ -78,20 +80,21 @@ function App() {
           className="profile-img"
         />
         <h1>Mohammad Shehabul Islam</h1>
-        <p>Computer Science Graduate | Software Developer</p>
+        <p>Software Developer</p>
         <a
           href="https://www.linkedin.com/in/mohammad-shehabul-islam-55b7b223a/"
           className="btn btn-light m-2 btn-custom"
         >
-          LinkedIn
+          <i className="fab fa-linkedin"></i> LinkedIn
         </a>
         <a
           href="https://github.com/MdShehabulIslam"
           className="btn btn-light m-2 btn-custom"
         >
-          GitHub
+          <i className="fab fa-github"></i> GitHub
         </a>
       </header>
+
       {/* Summary Section */}
 
       <section className="container my-5" id="about">
@@ -257,50 +260,63 @@ function App() {
       </section>
 
       {/* Projects Section */}
+
       <section className="container my-5" id="projects">
         <h2 className="section-title">Projects</h2>
         <div className="projects">
           <div className="project shadow-sm">
+            <img
+              src="https://wallpapercat.com/w/full/8/3/2/2127835-3840x2160-desktop-4k-internet-background.jpg"
+              alt="Infinix Broadband Project"
+              className="project-image"
+            />
             <h4>
               <a href="https://mdshehabulislam.github.io/Infinix-Broadband/">
-                Infinix Broadband Project
+                Infinix Broadband
               </a>
             </h4>
-            <ul>
-              <li>
-                Developed a fully responsive layout with Bootstrap and custom
-                CSS, ensuring an optimal user experience across various devices.
-              </li>
-              <li>
-                Built dynamic user interfaces using React, handled server-side
-                logic with Express, and managed the backend with PostgreSQL for
-                data handling.
-              </li>
-              <li>
-                Created and integrated RESTful APIs for seamless front-end and
-                back-end communication and utilized Git and GitHub for version
-                control and collaboration.
-              </li>
-            </ul>
+            <div className="project-buttons">
+              <a
+                href="https://mdshehabulislam.github.io/Infinix-Broadband/"
+                className="btn"
+              >
+                View Website{" "}
+                <i className="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a
+                href="https://github.com/MdShehabulIslam/Infinix-Broadband"
+                className="btn"
+              >
+                GitHub Code
+              </a>
+            </div>
           </div>
           <div className="project shadow-sm">
+            <img
+              src="https://d2oe9fogqkc3hl.cloudfront.net/static/illustrations/category-pages/chemistry.png"
+              alt="Masters Project: Retrievium"
+              className="project-image"
+            />
             <h4>
               <a href="https://drive.google.com/drive/folders/1pym7Maufr8WmXFY09FiYRA6xF0yYBj8c">
-                Masters Project: Retrievium
+                Retrievium
               </a>
             </h4>
-
-            <ul>
-              <li>
-                Collaborated on the development of 'Retrievium,' a data-driven
-                tool for chemistry.
-              </li>
-              <li>
-                Handled database extraction and created a schema using CSV
-                mapping files.
-              </li>
-              <li>Generated Python scripts to map CSV files with CML files.</li>
-            </ul>
+            <div className="project-buttons">
+              <a
+                href="https://drive.google.com/drive/folders/1pym7Maufr8WmXFY09FiYRA6xF0yYBj8c"
+                className="btn"
+              >
+                View Website{" "}
+                <i className="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a
+                href="https://drive.google.com/drive/folders/1pym7Maufr8WmXFY09FiYRA6xF0yYBj8c"
+                className="btn"
+              >
+                Google Drive
+              </a>
+            </div>
           </div>
         </div>
       </section>
