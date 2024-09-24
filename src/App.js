@@ -330,7 +330,7 @@ function App() {
             href="https://github.com/MdShehabulIslam"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white mx-2"
+            className="text-white mx-2 social-icon" // Added class for styling
           >
             <i className="fab fa-github fa-lg"></i>
           </a>
@@ -338,7 +338,7 @@ function App() {
             href="https://www.linkedin.com/in/mohammad-shehabul-islam-55b7b223a/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white mx-2"
+            className="text-white mx-2 social-icon" // Added class for styling
           >
             <i className="fab fa-linkedin fa-lg"></i>
           </a>
@@ -346,7 +346,7 @@ function App() {
             href="https://www.facebook.com/MdSiamIslam97"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white mx-2"
+            className="text-white mx-2 social-icon" // Added class for styling
           >
             <i className="fab fa-facebook fa-lg"></i>
           </a>

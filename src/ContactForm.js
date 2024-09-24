@@ -37,7 +37,7 @@ function ContactForm() {
         <div className="contact-info"></div>
         <div className="contact-form">
           <form className="contact-form-inner" onSubmit={handleSubmit}>
-            <h2>Get in Touch</h2>
+            <h2>Lets Connect</h2>
             <div className="form-group">
               <input
                 type="text"
